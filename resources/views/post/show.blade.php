@@ -19,28 +19,6 @@
         <div class="row">
             <div class="col-lg-9 mx-auto">
 
-                <section class="py-3">
-                    @auth()
-                    <form action="{{route('post.like.store', $post->id)}}" method="post">
-                        @csrf
-                        <span>{{$post->liked_users_count}}</span>
-                        <button type="submit" class="border-0 bg-transparent">
-                            @if(auth()->user()->likedPosts->contains($post->id))
-                                <i class="fas fa-heart"></i>
-                            @else
-                                <i class="far fa-heart"></i>
-                            @endif
-                        </button>
-                    </form>
-                    @endauth
-                    @guest()
-                    <div class="justify-content-center">
-                        <span>{{$post->liked_users_count}}</span>
-                        <i class="far fa-heart"></i>
-                    </div>
-                    @endguest
-                </section>
-
                 @if($relatedPosts->count() >0)
                 <section class="related-posts">
                     <h2 class="section-title mb-4" data-aos="fade-up">Похоже на то что вы ищете</h2>
@@ -99,7 +77,7 @@
                 @endauth
                 @guest()
                 <section class="text-danger" ">
-                    <p class="pl-5" data-aos="fade-up">Для отправки коментария необходимо <a href="{{route('personal.main.index')}}">авторизоваться</a></p>
+                    <p class="" data-aos="fade-up">Для отправки коментария необходимо <a href="{{route('personal.main.index')}}">авторизоваться</a></p>
                 </section>
                 @endguest
             </div>
